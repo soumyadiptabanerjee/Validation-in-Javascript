@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                background-color: #3498db;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 97%;
+            }
+            input{
+                padding: 10px;
+                width: 250px;
+            }
+            p{
+                padding-bottom: 27px;
+                margin: 0;
+                text-align: left;
+                color: red;
+            }
+            #content{
+                padding: 50px;
+                background-color: white;
+                text-align: center;
+            }
+            h1{
+                margin: 0 0 20px;
+            }
+            button{
+                padding: 10px;
+                width: 180px;
+                background-color: #3498db;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <h1>Login</h1>
+            <form onsubmit="return validate()">
+                <input type="text" placeholder="Username" id="username">
+                <p id="userp"> </p>
+                <input type="password" placeholder="Password" id="pass">
+                <p id="passp"></p>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+        <script>
+            let user = document.getElementById("username");
+            let pass = document.getElementById("pass");
+            let flag;
+            
+            function validate(){
+                if(user.value === ""){
+                    document.getElementById("userp").innerHTML = "feild is empty";
+                    flag = 0;
+                }
+                else if(user.value.length < 3){
+                    document.getElementById("userp").innerHTML = "min 3 characters required";
+                    flag = 0;
+            }else{
+                    document.getElementById("userp").innerHTML = "";
+                    flag = 1;
+            }
+            if(pass.value === ""){
+                    document.getElementById("passp").innerHTML = "feild is empty";
+                    flag = 0;
+                }else{
+                    document.getElementById("passp").innerHTML = "";
+                    
+            }
+            if(flag === 1){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        </script>
+    </body>
+</html>
